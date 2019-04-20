@@ -29,7 +29,7 @@ Return the list of all integers `n` between `a` and `b` (inclusive) which are di
 Use your function to find integers which are divisible by 7 but are not a multiple of 5, between 2000 and 3200 (inclusive).
 Print the results in a comma-separated sequence on a single line.
 
-Hint: Consider using the built-in `range()` function.
+_Hint_: Consider using the built-in `range()` function.
 
 #### Exercise 2
 
@@ -102,7 +102,7 @@ hello world and practice makes perfect and hello world again
 Then, the output should be:
 again and hello makes perfect practice world
 
-Hint: We use set container to remove duplicated data automatically and then use sorted() to sort the data.
+_Hint_: case a sequence as a `set()` to remove duplicated data; use `sorted()` to create a new list of sorted data from a sequence.
 
 #### Exercise 11
 
@@ -138,34 +138,38 @@ LOWER CASE 9
 
 #### Exercise 15
 
-Write a program that computes the value of a+aa+aaa+aaaa with a given digit as the value of a.
-Suppose the following input is supplied to the program:
-9
-Then, the output should be:
-11106
+Write a function that accepts two positive integers `a` and `n`.
+Compute the value of `a` + `aa` + `aaa` + ... + `aaaaaaa` (n times), where `aa` indicates the two-digit number with both digits `a`, and so on.
+
+For example, with `a=1` and `n=3`, the task is to compute `1 + 11 + 111 = 123`.
 
 #### Exercise 16
+<!-- List Comprehension -->
 
 Use a list comprehension to square each odd number in a list. The list is input by a sequence of comma-separated numbers.
 Suppose the following input is supplied to the program:
-1,2,3,4,5,6,7,8,9
+`1,2,3,4,5,6,7,8,9`
 Then, the output should be:
-1,3,5,7,9
+`1,3,5,7,9`
 
 #### Exercise 17
 
-Write a program that computes the net amount of a bank account based a transaction log from console input. The transaction log format is shown as following:
-D 100
-W 200
+Consider a bank account with a transaction log from console output.
+Transactions are listed as `D 100` or `W 200`, where `D` means deposit and `W` means withdrawal.
+Write a function that accepts a starting balance, defaulting to zero, then continually reads transactions from the console until the input `STOP` is received.
+If an invalid transaction (other than `STOP`) is provided, do nothing to the balance but do not terminate the program.
+Note that any transaction that would create a negative balance is invalid.
+After the `STOP` signal, return the end balance.
 
-D means deposit while W means withdrawal.
-Suppose the following input is supplied to the program:
+For example, the inputs
+```
 D 300
 D 300
 W 200
 D 100
-Then, the output should be:
-500
+STOP
+```
+should result in an output of `500`.
 
 #### Exercise 19
 
@@ -175,31 +179,43 @@ You are required to write a program to sort the (name, age, height) tuples by as
 3: Then sort by score.
 The priority is that name > age > score.
 If the following tuples are given as input to the program:
+```
 Tom,19,80
 John,20,90
 Jony,17,91
 Jony,17,93
 Json,21,85
+```
 Then, the output of the program should be:
-[('John', '20', '90'), ('Jony', '17', '91'), ('Jony', '17', '93'), ('Json', '21', '85'), ('Tom', '19', '80')]
+```
+[('John', '20', '90'),
+ ('Jony', '17', '91'),
+ ('Jony', '17', '93'),
+ ('Json', '21', '85'),
+ ('Tom', '19', '80')]
+ ```
 
-Hint: We use itemgetter to enable multiple sort keys.
+_Hint_: We use itemgetter to enable multiple sort keys.
 
 #### Exercise 20
 
-Define a class with a generator which can iterate the numbers, which are divisible by 7, between a given range 0 and n.
-
-_Hint_: Consider use yield
+Write a generator that yields the positive integers less than a given integer `n` which are divisible by a given integer `d`.
+Use your generator to get the multiples of 7 that are less than 100.
 
 #### Exercise 21
 
-A robot moves in a plane starting from the original point (0,0). The robot can move toward UP, DOWN, LEFT and RIGHT with a given steps. The trace of robot movement is shown as the following:
+A robot moves in a plane starting from the origin (0,0).
+The robot can move toward UP, DOWN, LEFT and RIGHT with a given steps.
+The trace of robot movement is shown as the following:
 UP 5
 DOWN 3
 LEFT 3
 RIGHT 2
-¡­
-The numbers after the direction are steps. write a program to compute the distance from current position after a sequence of movement and original point. If the distance is a float, then just print the nearest integer.
+STOP­
+The numbers after the direction are steps.
+Write a program to compute the distance from current position after a sequence of movement and original point.
+If the distance is a float, then just print the nearest integer.
+
 Example:
 If the following tuples are given as input to the program:
 UP 5
@@ -211,65 +227,32 @@ Then, the output of the program should be:
 
 #### Exercise 22
 
-Write a program to compute the frequency of the words from the input. The output should output after sorting the key alphanumerically.
+Write a program to compute the frequency of the words from the input.
+The output should output after sorting the key alphanumerically.
 Suppose the following input is supplied to the program:
-New to Python or choosing between Python 2 and Python 3? Read Python 2 or Python 3.
+`New to Python or choosing between Python 2 and Python 3? Read Python 2 or Python 3`.
 Then, the output should be:
-2:2
-3.:1
-3?:1
-New:1
-Python:5
-Read:1
-and:1
-between:1
-choosing:1
-or:2
-to:1
+```
+2: 2
+3.: 1
+3?: 1
+New: 1
+Python: 5
+Read: 1
+and: 1
+between: 1
+choosing: 1
+or: 2
+to: 1
+```
 
-Hints
+#### Exercise ?? (Strings and Numbers)
 
-#### Exercise 23 <!-- TODO: this one is dumb and out of place. -->
-**Level 1**
+Define a function that can receives two numbers as strings and returns their sum as a string.
+For example, the inputs `"12"` and `"3"` should give the output `"15"`.
 
-    Write a method which can calculate square value of number
-
-_Hint_:     Using the ** operator
-
-#### Exercise 24 <!-- TODO: this one is dumb and out of place. -->
-**Level 1**
-
-Python has many built-in functions, and if you do not know how to use it, you can read document online or find some books. But Python has a built-in document function for every built-in functions.
-Write a program to print some Python built-in functions documents, such as abs(), int(), input()
-And add document for your own function
-
-_Hint_:     The built-in document method is __doc__
-
-#### Exercise 25 <!-- TODO: this one is dumb and out of place. -->
-**Level 1**
-
-Define a class, which have a class parameter and have a same instance parameter.
-
-_Hint_:     Define a instance parameter, need add it in __init__ method
-    You can init a object with construct parameter or set the value later
-
-#### Exercise ??
-
-Define a function that can convert a integer into a string and print it in console.
-
-_Hint_: Use `str()` to convert a number to string.
-
-#### Exercise ??
-
-Define a function that can receive two integral numbers in string form and compute their sum and then print it in console.
-
-_Hint_: Use int() to convert a string to integer.
-
-#### Exercise ??
-
-Define a function that can accept two strings as input and print the string with maximum length in console. If two strings have the same length, then the function should print al l strings line by line.
-
-_Hint_: Use len() function to get the length of a string
+Next, write a function that accepts two strings as input and print the string with maximum length in console.
+If two strings have the same length, then the function should print al l strings line by line.
 
 #### Exercise ??
 
@@ -433,77 +416,17 @@ Define a class named American and its subclass NewYorker.
 _Hint_:
 Use class Subclass(ParentClass) to define a subclass.
 
-#### Exercise ??
+#### Exercise ?? (OOP)
 
-Define a class named Circle which can be constructed by a radius. The Circle class has a method which can compute the area.
-
-_Hint_:
-Use def methodName(self) to define a method.
-
-#### Exercise ??
-
-Define a class named Rectangle which can be constructed by a length and width. The Rectangle class has a method which can compute the area.
-
-_Hint_:
-Use def methodName(self) to define a method.
+Define a `Circle` class which can be constructed by a radius, and define methods for computing its area and circumference.
+Next, define `Rectangle` class which can be constructed by a length and width, and define methods for computing its area and perimeter.
+Finally, write a `Square` class that inherits from `Rectangle`.
 
 #### Exercise ??
 
-Define a class named Shape and its subclass Square. The Square class has an init function which takes a length as argument. Both classes have a area function which can print the area of the shape where Shape's area is 0 by default.
-
-_Hint_:
-To override a method in super class, we can define a method with the same name in the super class.
-
-#### Exercise ??
-
-raise a RuntimeError exception.
-
-_Hint_: Use `raise <Exception>` to raise an exception.
-
-#### Exercise ??
-
-Write a function to compute 5/0 and use try/except to catch the exceptions.
-
-_Hint_:
-Use try/except to catch exceptions.
-
-#### Exercise ??
-
-Define a custom exception class which takes a string message as attribute.
-
-_Hint_:
-To define a custom exception, we need to define a class inherited from Exception.
-
-#### Exercise ??
-
-Assuming that we have some email addresses in the "username@companyname.com" format, write program to print the user name of a given email address. Both user names and company names are composed of letters only.
-
-Example:
-If the following email address is given as input to the program:
-
-john@google.com
-
-Then, the output of the program should be:
-
-john
-
-_Hint_: Use `\w` to match letters.
-
-#### Exercise ??
-
-Assuming that we have some email addresses in the "username@companyname.com" format, write program to print the company name of a given email address. Both user names and company names are composed of letters only.
-
-Example:
-If the following email address is given as input to the program:
-
-john@google.com
-
-Then, the output of the program should be:
-
-google
-
-_Hint_:
-Use `\w` to match letters.
+Write a function to strip the username from an email address (the text before the @ sign).
+For example,
+`username@companyname.com` should result in `username`.
 
 #### Exercise ??
 
