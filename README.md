@@ -1,51 +1,48 @@
 # 100+ Python Programming Exercises
 
 Adapted from [https://github.com/zhiwehu/Python-programming-exercises](https://github.com/zhiwehu/Python-programming-exercises).
-Exercises have been updated to Python 3 and expanded.
+Exercises have been updated to Python 3 and expanded (or completely changed).
 
-The exercises are groupded into the following difficulty levels.
+The exercises are grouped into the following difficulty levels.
 
 - **Beginner.**
 For someone who has just gone through an introductory Python course.
-He or she can solve some problems with 1 or 2 Python classes or functions.
-Normally, the answers could directly be found in the textbooks.
+Problem solutions may involve one or two Python classes or functions, but nothing beyond built-in functions.
 
 - **Intermediate.**
-For someone who has just learned Python, but already has a relatively strong programming background from before.
-He or she should be able to solve problems which may involve 3 or 4 Python classes or functions.
-The answers cannot be directly be found in the textbooks.
+For someone who has just learned Python, but who already has a programming background.
+Problem solutions may involve three or four Python classes or functions, including some tools from the standard library.
 
 - **Advanced**.
 For someone who has been using Python for some time.
-He or she should use Python to solve more complex problem using more rich libraries functions and data structures and algorithms.
-He or she should solve the problem using several Python standard packages and advanced techniques.
+Problem solutions may require several classes or functions, including tools from scientific computing libraries such as `numpy`.
 
 ## Beginner Exercises
 
-#### Exercise 1
+#### Exercise ??
 
-Write a function that accepts integers `a`, `b`, `c`, and `d`.
+Write a function that accepts positive integers `a`, `b`, `c`, and `d`.
 Return the list of all integers `n` between `a` and `b` (inclusive) which are divisible by `c` but not by `d`.
 Use your function to find integers which are divisible by 7 but are not a multiple of 5, between 2000 and 3200 (inclusive).
 Print the results in a comma-separated sequence on a single line.
 
-_Hint_: Consider using the built-in `range()` function.
+_Hint_: Recall the `%` operator calculates the remainder of a division (e.g., `10 % 3` returns `1`).
 
-#### Exercise 2
+#### Exercise ??
 
-Write a function which computes the factorial of a given integer.
-Use your function to find 14!.
+Write a function which computes the factorial of a given integer (e.g., `5! = 5*4*3*2*1 = 120`).
+Use your function to find `14!`.
 
 _Hint_: make the function recursive.
 
-#### Exercise 3
+#### Exercise ??
 
 Write a function that accepts an integer `n`.
-Return the dictionary containing key-value pairs `(i, i*i)` for all integers `1 ≤ i ≤ n`.
+Return the dictionary containing key-value pairs `(i, i*i)` for all even integers `1 ≤ i ≤ n`.
 For example, `n = 8` should result in the dictionary
-`{1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64}`.
+`{2: 4, 4: 16, 6: 36, 8: 64}`.
 
-#### Exercise 4
+#### Exercise ??
 
 Write a program which accepts a comma-separated sequence from the console.
 Generate a list and a tuple which contains every sequence element.
@@ -56,28 +53,28 @@ For example, if the user types `34,67,55,33,12,98`, the output should be
 ```
 _Hint_: use the built-in function `input()` to read console input from the user.
 
-#### Exercise 5
+#### Exercise ??
 
 Define a class with the following methods:
 
-- `get_string()`: read a string from console input.
+- `get_string()`: read (and store) a string from console input.
 - `print_string()`: print the string in upper case.
 
 Also include simple functions to test each class method.
 
-#### Exercise 7
+#### Exercise ??
 
 Write a function which accepts 2 integers `X`, `Y`.
 Generates a 2-dimensional array with `X` rows and `Y` columns as a list of lists, where the element value in the `i`th row and `j`th column of the array is `i*j`, with `0 ≤ i ≤ X` and `0 ≤ j ≤ Y`.
 
 For example, `X=3` and `Y=5` should result in the following array.
-#### Exercise 8
+#### Exercise ??
 
 Write a program that receives a comma-separated sequence of strings from the console, sorts the sequence alphabetically, and prints it again as a comma-separated sequence.
 
 For example, the input `without,hello,bag,world` should result in `bag,hello,without,world` being printed.
 
-#### Exercise 9
+#### Exercise ??
 
 Write a program that continually accepts lines of input from the console until encountering the input `STOP`.
 Capitalize all of the inputs and join them into a single space-separated string.
@@ -94,7 +91,7 @@ STOP
 ```
 should result in the output `HELLO WORLD PRACTICE MAKES PERFECT STOP`.
 
-#### Exercise 10
+#### Exercise ??
 
 Write a program that accepts a sequence of whitespace separated words as input and prints the words after removing all duplicate words and sorting them alphanumerically.
 Suppose the following input is supplied to the program:
@@ -104,7 +101,7 @@ again and hello makes perfect practice world
 
 _Hint_: case a sequence as a `set()` to remove duplicated data; use `sorted()` to create a new list of sorted data from a sequence.
 
-#### Exercise 11
+#### Exercise ??
 
 Write a program which accepts a sequence of comma separated 4 digit binary numbers as its input and then check whether they are divisible by 5 or not. The numbers that are divisible by 5 are to be printed in a comma separated sequence.
 Example:
@@ -113,12 +110,12 @@ Then the output should be:
 1010
 Notes: Assume the data is input by console.
 
-#### Exercise 12
+#### Exercise ??
 
 Write a program, which will find all such numbers between 1000 and 3000 (both included) such that each digit of the number is an even number.
 The numbers obtained should be printed in a comma-separated sequence on a single line.
 
-#### Exercise 13
+#### Exercise ??
 
 Write a program that accepts a sentence and calculate the number of letters and digits.
 Suppose the following input is supplied to the program:
@@ -127,7 +124,7 @@ Then, the output should be:
 LETTERS 10
 DIGITS 3
 
-#### Exercise 14
+#### Exercise ??
 
 Write a program that accepts a sentence and calculate the number of upper case letters and lower case letters.
 Suppose the following input is supplied to the program:
@@ -136,14 +133,14 @@ Then, the output should be:
 UPPER CASE 1
 LOWER CASE 9
 
-#### Exercise 15
+#### Exercise ??
 
 Write a function that accepts two positive integers `a` and `n`.
 Compute the value of `a` + `aa` + `aaa` + ... + `aaaaaaa` (n times), where `aa` indicates the two-digit number with both digits `a`, and so on.
 
 For example, with `a=1` and `n=3`, the task is to compute `1 + 11 + 111 = 123`.
 
-#### Exercise 16
+#### Exercise ??
 <!-- List Comprehension -->
 
 Use a list comprehension to square each odd number in a list. The list is input by a sequence of comma-separated numbers.
@@ -152,7 +149,7 @@ Suppose the following input is supplied to the program:
 Then, the output should be:
 `1,3,5,7,9`
 
-#### Exercise 17
+#### Exercise ??
 
 Consider a bank account with a transaction log from console output.
 Transactions are listed as `D 100` or `W 200`, where `D` means deposit and `W` means withdrawal.
@@ -171,7 +168,7 @@ STOP
 ```
 should result in an output of `500`.
 
-#### Exercise 19
+#### Exercise ??
 
 You are required to write a program to sort the (name, age, height) tuples by ascending order where name is string, age and height are numbers. The tuples are input by console. The sort criteria is:
 1: Sort based on name;
@@ -197,12 +194,12 @@ Then, the output of the program should be:
 
 _Hint_: We use itemgetter to enable multiple sort keys.
 
-#### Exercise 20
+#### Exercise ??
 
 Write a generator that yields the positive integers less than a given integer `n` which are divisible by a given integer `d`.
 Use your generator to get the multiples of 7 that are less than 100.
 
-#### Exercise 21
+#### Exercise ??
 
 A robot moves in a plane starting from the origin (0,0).
 The robot can move toward UP, DOWN, LEFT and RIGHT with a given steps.
@@ -225,7 +222,7 @@ RIGHT 2
 Then, the output of the program should be:
 2
 
-#### Exercise 22
+#### Exercise ??
 
 Write a program to compute the frequency of the words from the input.
 The output should output after sorting the key alphanumerically.
@@ -766,7 +763,7 @@ _Hint_: Use list[::2] to iterate a list by step 2.
 
 Write a program which prints all permutations of [1,2,3]
 
-_Hint_: Use itertools.permutations() to get permutations of list.
+_Hint_: Use itertools.permutations().
 
 #### Exercise ??
 

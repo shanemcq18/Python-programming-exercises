@@ -1,55 +1,52 @@
 # 100+ Python Programming Exercises
 
 Adapted from [https://github.com/zhiwehu/Python-programming-exercises](https://github.com/zhiwehu/Python-programming-exercises).
-Exercises have been updated to Python 3 and expanded.
+Exercises have been updated to Python 3 and expanded (or completely changed).
 
-The exercises are groupded into the following difficulty levels.
+The exercises are grouped into the following difficulty levels.
 
 - **Beginner.**
 For someone who has just gone through an introductory Python course.
-He or she can solve some problems with 1 or 2 Python classes or functions.
-Normally, the answers could directly be found in the textbooks.
+Problem solutions may involve one or two Python classes or functions, but nothing beyond built-in functions.
 
 - **Intermediate.**
-For someone who has just learned Python, but already has a relatively strong programming background from before.
-He or she should be able to solve problems which may involve 3 or 4 Python classes or functions.
-The answers cannot be directly be found in the textbooks.
+For someone who has just learned Python, but who already has a programming background.
+Problem solutions may involve three or four Python classes or functions, including some tools from the standard library.
 
 - **Advanced**.
 For someone who has been using Python for some time.
-He or she should use Python to solve more complex problem using more rich libraries functions and data structures and algorithms.
-He or she should solve the problem using several Python standard packages and advanced techniques.
+Problem solutions may require several classes or functions, including tools from scientific computing libraries such as `numpy`.
 
 ## Beginner Exercises
 
-#### Exercise 1
+#### Exercise ??
 
-Write a function that accepts integers `a`, `b`, `c`, and `d`.
+Write a function that accepts positive integers `a`, `b`, `c`, and `d`.
 Return the list of all integers `n` between `a` and `b` (inclusive) which are divisible by `c` but not by `d`.
 Use your function to find integers which are divisible by 7 but are not a multiple of 5, between 2000 and 3200 (inclusive).
 Print the results in a comma-separated sequence on a single line.
 
-_Hint_: Consider using the built-in `range()` function.
+_Hint_: Recall the `%` operator calculates the remainder of a division (e.g., `10 % 3` returns `1`).
 
 ```python
 def multiple_range(a, b, c, d) -> list:
     """Return the list of integers n with a ≤ n ≤ b, where n is divisible by c
-    but not by b.
+    but not by d.
     """
     # Brute force option: check each number between a and b inclusive.
     return [i for i in range(a, b+1) if not i%c and i%d]
 
     # Better option: generate all multiples of c and filter out multiples of 5.
-    return [n*7 for n in range(a//c +1, (b+1)//c +1) if n%d]
+    return [n*c for n in range(a//c +1, (b+1)//c +1) if n%d]
 
 # Find integers between 2000 and 3200 which are divisible by 7 but not 5.
-print('.'.join([n for n in multiple_range(2000, 3200, 7, 5)]))
+print(','.join(multiple_range(2000, 3200, 7, 5)))
 ```
 
-#### Exercise 2
+#### Exercise ??
 
-Write a function which computes the factorial of a given integer.
-Use your function to find 14!.
+Write a function which computes the factorial of a given integer (e.g., `5! = 5*4*3*2*1 = 120`).
+Use your function to find `14!`.
 
 _Hint_: make the function recursive.
 
@@ -65,30 +62,28 @@ def factorial_iter(n) -> int:
 # Recursive solution. Base cases is 0! = 1.
 def factorial(n) -> int:
     """Compute n!, the factorial of the integer n (recursively)."""
-    return 1 if n == 0 else n * factorial(n - 1)
+    return 1 if n in {0,1} else n * factorial(n - 1)
 
 # Find 14!.
 print(factorial(14))
 ```
 
-#### Exercise 3
+#### Exercise ??
 
 Write a function that accepts an integer `n`.
-Return the dictionary containing key-value pairs `(i, i*i)` for all integers `1 ≤ i ≤ n`.
+Return the dictionary containing key-value pairs `(i, i*i)` for all even integers `1 ≤ i ≤ n`.
 For example, `n = 8` should result in the dictionary
-`{1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64}`.
+`{2: 4, 4: 16, 6: 36, 8: 64}`.
 
 ```python
 def squares_dict(n) -> dict:
     """Return the dictionary containing key-value pairs (i, i*i) for all
     integers 1 ≤ i ≤ n.
     """
-    return {i:i**2 for i in range(1, n+1)}
-
-squares_dict(8)
+    return {i:i**2 for i in range(1, n+1) if not i % 2}
 ```
 
-#### Exercise 4
+#### Exercise ??
 
 Write a program which accepts a comma-separated sequence from the console.
 Generate a list and a tuple which contains every sequence element.
@@ -105,17 +100,17 @@ print(values_list)
 print(tuple(values_list))
 ```
 
-#### Exercise 5
+#### Exercise ??
 
 Define a class with the following methods:
 
-- `get_string()`: read a string from console input.
+- `get_string()`: read (and store) a string from console input.
 - `print_string()`: print the string in upper case.
 
 Also include simple functions to test each class method.
 
 ```python
-class InputOutString:
+class StringGetterPrinter:
     """Simple class for reading console output and shouting it back."""
     def __init__(self):
         """Initialize `s`, the string attribute."""
@@ -130,37 +125,17 @@ class InputOutString:
         print(self.s.upper())
 
 def test_getter():
-    ios = InputOutString()
+    ios = StringGetterPrinter()
     ios.getString()
     print(ios.s)                # Should be the same as the user input.
 
 def test_printer():
-    ios = InputOutString()
+    ios = StringGetterPrinter()
     ios.s = "hello, world!"
     ios.print_string()          # Should be "HELLO, WORLD!"
 ```
 
-## Intermediate Exercises
-
-#### Exercise 6
-
-Write a function that accepts a list `D` of numbers and two numbers `C` and `H`.
-For each value `d` in the list `D`, calculate `Q = Square root of [(2 * C * d)/H]`.
-Set the default values of `C` and `H` to 50 and 30, respectively.
-Round each output to the nearest integer and return the reslts as a list.
-
-For example, if `D = [100, 150, 180]`, then the output (with the default values for `C` and `H`) should be `[18, 22, 24]`.
-
-```python
-from math import sqrt
-
-def formula(D, C=50, H=30):
-    return [int(round(sqrt(2*C*d/H))) for d in D]
-
-formula([100, 150, 180])
-```
-
-#### Exercise 7
+#### Exercise ??
 
 Write a function which accepts 2 integers `X`, `Y`.
 Generates a 2-dimensional array with `X` rows and `Y` columns as a list of lists, where the element value in the `i`th row and `j`th column of the array is `i*j`, with `0 ≤ i ≤ X` and `0 ≤ j ≤ Y`.
@@ -179,7 +154,7 @@ def grid_maker(X, Y):
 grid_maker(3, 5)
 ```
 
-#### Exercise 8
+#### Exercise ??
 
 Write a program that receives a comma-separated sequence of strings from the console, sorts the sequence alphabetically, and prints it again as a comma-separated sequence.
 
@@ -189,7 +164,7 @@ For example, the input `without,hello,bag,world` should result in `bag,hello,wit
 print(sorted(input().split(',')))
 ```
 
-#### Exercise 9
+#### Exercise ??
 
 Write a program that continually accepts lines of input from the console until encountering the input `STOP`.
 Capitalize all of the inputs and join them into a single space-separated string.
@@ -208,7 +183,7 @@ should result in the output `HELLO WORLD PRACTICE MAKES PERFECT STOP`.
 
 ```python
 lines = []
-While True:
+while True:
     s = input()
     lines.append(s.upper())
     if s == "STOP":
@@ -217,7 +192,7 @@ While True:
 print(' '.join(lines))
 ```
 
-#### Exercise 10
+#### Exercise ??
 
 Write a program that accepts a sequence of whitespace separated words as input and prints the words after removing all duplicate words and sorting them alphanumerically.
 Suppose the following input is supplied to the program:
@@ -231,7 +206,27 @@ _Hint_: case a sequence as a `set()` to remove duplicated data; use `sorted()` t
 print(" ".join(sorted(set(input().split()))))
 ```
 
-#### Exercise 11
+## Intermediate Exercises
+
+#### Exercise ??
+
+Write a function that accepts a list `D` of numbers and two numbers `C` and `H`.
+For each value `d` in the list `D`, calculate `Q = Square root of [(2 * C * d)/H]`.
+Set the default values of `C` and `H` to 50 and 30, respectively.
+Round each output to the nearest integer and return the reslts as a list.
+
+For example, if `D = [100, 150, 180]`, then the output (with the default values for `C` and `H`) should be `[18, 22, 24]`.
+
+```python
+from math import sqrt
+
+def formula(D, C=50, H=30):
+    return [int(round(sqrt(2*C*d/H))) for d in D]
+
+formula([100, 150, 180])
+```
+
+#### Exercise ??
 
 Write a program which accepts a sequence of comma separated 4 digit binary numbers as its input and then check whether they are divisible by 5 or not. The numbers that are divisible by 5 are to be printed in a comma separated sequence.
 Example:
@@ -251,7 +246,7 @@ for p in items:
 print(','.join(value))
 ```
 
-#### Exercise 12
+#### Exercise ??
 
 Write a program, which will find all such numbers between 1000 and 3000 (both included) such that each digit of the number is an even number.
 The numbers obtained should be printed in a comma-separated sequence on a single line.
@@ -265,7 +260,7 @@ for i in range(1000, 3001):
 print(",".join(values))
 ```
 
-#### Exercise 13
+#### Exercise ??
 
 Write a program that accepts a sentence and calculate the number of letters and digits.
 Suppose the following input is supplied to the program:
@@ -288,7 +283,7 @@ print("LETTERS", d["LETTERS"])
 print("DIGITS", d["DIGITS"])
 ```
 
-#### Exercise 14
+#### Exercise ??
 
 Write a program that accepts a sentence and calculate the number of upper case letters and lower case letters.
 Suppose the following input is supplied to the program:
@@ -311,7 +306,7 @@ print("UPPER CASE", d["UPPER CASE"])
 print("LOWER CASE", d["LOWER CASE"])
 ```
 
-#### Exercise 15
+#### Exercise ??
 
 Write a function that accepts two positive integers `a` and `n`.
 Compute the value of `a` + `aa` + `aaa` + ... + `aaaaaaa` (n times), where `aa` indicates the two-digit number with both digits `a`, and so on.
@@ -324,7 +319,7 @@ def sum_repeat(a, n):
     return sum(int(k*sa) for n in range(1,n+1))
 ```
 
-#### Exercise 16
+#### Exercise ??
 <!-- List Comprehension -->
 
 Use a list comprehension to square each odd number in a list. The list is input by a sequence of comma-separated numbers.
@@ -337,7 +332,7 @@ Then, the output should be:
 print(",".join([x for x in input().split(",") if int(x) % 2 != 0]))
 ```
 
-#### Exercise 17
+#### Exercise ??
 
 Consider a bank account with a transaction log from console output.
 Transactions are listed as `D 100` or `W 200`, where `D` means deposit and `W` means withdrawal.
@@ -375,7 +370,7 @@ def transactions(starting_balance=0):
 
 ## Advanced Exercises
 
-#### Exercise 18
+#### Exercise ??
 
 A website requires the users to create a username and password to register.
 The password must satisfy the following criteria:
@@ -407,7 +402,7 @@ def valid_password(word):
     return True
 ```
 
-#### Exercise 19
+#### Exercise ??
 
 You are required to write a program to sort the (name, age, height) tuples by ascending order where name is string, age and height are numbers. The tuples are input by console. The sort criteria is:
 1: Sort based on name;
@@ -437,7 +432,7 @@ _Hint_: We use itemgetter to enable multiple sort keys.
 from operator import itemgetter, attrgetter
 
 l = []
-While True:
+while True:
     s = input()
     if not s:
         break
@@ -446,7 +441,7 @@ While True:
 print(sorted(l, key=itemgetter(0,1,2)))
 ```
 
-#### Exercise 20
+#### Exercise ??
 
 Write a generator that yields the positive integers less than a given integer `n` which are divisible by a given integer `d`.
 Use your generator to get the multiples of 7 that are less than 100.
@@ -461,7 +456,7 @@ def multiples(d, n=100):
 ", ".join([str(n) for n in multiples(7, 100)])
 ```
 
-#### Exercise 21
+#### Exercise ??
 
 A robot moves in a plane starting from the origin (0,0).
 The robot can move toward UP, DOWN, LEFT and RIGHT with a given steps.
@@ -487,7 +482,7 @@ Then, the output of the program should be:
 ```python
 import math
 pos = [0,0]
-While True:
+while True:
     s = input()
     if not s:
         break
@@ -508,7 +503,7 @@ While True:
 print(int(round(math.sqrt(pos[1]**2+pos[0]**2))))
 ```
 
-#### Exercise 22
+#### Exercise ??
 
 Write a program to compute the frequency of the words from the input.
 The output should output after sorting the key alphanumerically.
@@ -1611,7 +1606,7 @@ print(s)
 
 Write a program which prints all permutations of [1,2,3]
 
-_Hint_: Use itertools.permutations() to get permutations of list.
+_Hint_: Use itertools.permutations().
 
 ```python
 import itertools
